@@ -1,0 +1,71 @@
+zabbix_export:
+  version: "6.0"
+  date: "2025-02-13T00:00:00Z"
+  groups:
+    - name: "Templates/Databases"
+  templates:
+    - template: "Template DB2 Monitoring"
+      name: "Template DB2 Monitoring"
+      description: "Template for monitoring IBM DB2 using Zabbix Agent and UserParameters"
+      groups:
+        - name: "Templates/Databases"
+      items:
+        - name: "DB2 Status"
+          type: "Zabbix agent"
+          key: "db2.status"
+          delay: "30s"
+          value_type: 3
+          description: "Returns 1 if DB2 is running, 0 otherwise"
+        - name: "Active Connections"
+          type: "Zabbix agent"
+          key: "db2.active_connections"
+          delay: "60s"
+          value_type: 3
+          description: "Number of active connections to DB2"
+        - name: "Query Response Time"
+          type: "Zabbix agent"
+          key: "db2.query_time"
+          delay: "60s"
+          value_type: 0
+          units: "s"
+          description: "Time taken to execute a test query"
+        - name: "CPU Usage by DB2"
+          type: "Zabbix agent"
+          key: "db2.cpu_usage"
+          delay: "60s"
+          value_type: 3
+          units: "%"
+          description: "Percentage of CPU used by DB2"
+        - name: "Memory Usage by DB2"
+          type: "Zabbix agent"
+          key: "db2.memory_usage"
+          delay: "60s"
+          value_type: 3
+          units: "MB"
+          description: "Memory consumption of DB2 instance"
+        - name: "Database Size"
+          type: "Zabbix agent"
+          key: "db2.db_size"
+          delay: "300s"
+          value_type: 3
+          units: "GB"
+          description: "Total size of the DB2 database"
+        - name: "Transaction Log Usage"
+          type: "Zabbix agent"
+          key: "db2.tx_log_usage"
+          delay: "120s"
+          value_type: 3
+          units: "%"
+          description: "Percentage of transaction log used"
+        - name: "Backup Status"
+          type: "Zabbix agent"
+          key: "db2.backup_status"
+          delay: "86400s"
+          value_type: 3
+          description: "Last backup status (1 = Successful, 0 = Failed)"
+        - name: "Slow Queries Count"
+          type: "Zabbix agent"
+          key: "db2.slow_queries"
+          delay: "300s"
+          value_type: 3
+          description: "Number of queries exceeding threshold response time"
