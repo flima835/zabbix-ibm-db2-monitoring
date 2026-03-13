@@ -1,4 +1,4 @@
-# 📊 Zabbix Monitoring Template for IBM DB2
+# Zabbix Monitoring Template for IBM DB2
 
 ![Zabbix](https://img.shields.io/badge/Zabbix-6.0%2B-red)
 ![DB2](https://img.shields.io/badge/IBM%20DB2-Monitoring-blue)
@@ -6,9 +6,9 @@
 
 Este repositório contém um template personalizado para monitoramento de instâncias **IBM DB2** via Zabbix. 
 
-🚀 **Diferencial:** Este projeto nasceu da necessidade real de monitorar o DB2 em ambientes de produção, dado que não existem templates nativos robustos na comunidade Zabbix.
+**Diferencial:** Este projeto nasceu da necessidade real de monitorar o DB2 em ambientes de produção, dado que não existem templates nativos robustos na comunidade Zabbix.
 
-## 🔍 Funcionalidades Monitoradas
+## Funcionalidades Monitoradas
 
 O template utiliza `UserParameters` para coletar métricas essenciais diretamente do banco de dados:
 
@@ -19,20 +19,16 @@ O template utiliza `UserParameters` para coletar métricas essenciais diretament
 * **Saúde & Backup:** Status do último backup e contagem de Slow Queries (> 5s).
 * **Licenciamento:** Nome do produto, expiração e tipo de licença.
 
-## 🛠️ Configuração e Instalação
+## Configuração e Instalação
 ### 1. Pré-requisitos
 O usuário do Zabbix precisa de permissão para executar comandos como o usuário da instância DB2 (ex: `db2ecp`). Adicione ao seu arquivo `sudoers`:
-
-#bash
-zabbix ALL=(ALL) NOPASSWD:ALL
 
 ### 2. Configuração dos UserParameters
 Para que o Zabbix colete os dados, você deve criar um arquivo de configuração no diretório do Zabbix Agent (geralmente `/etc/zabbix/zabbix_agentd.d/db2_monitor.conf`).
 
 ### Observação Técnica Importante:
-No seu código, você mencionou que o usuário `db2pop` usa `/bin/csh` e isso impede a execução pelo `in903001` que precisa de `/bin/bash`. 
 
-**Dica:** No repositório, você pode sugerir que o administrador altere o shell do usuário ou use o parâmetro `-s /bin/bash` no comando `su` para garantir a compatibilidade:
+Como administrador altere o shell do usuário ou use o parâmetro `-s /bin/bash` no comando `su` para garantir a compatibilidade:
 `sudo su - db2ecp -s /bin/bash -c "comando_db2"`
 
 Abaixo estão os parâmetros de configuração utilizados neste template. **Atenção:** Substitua `db2ecp` pelo usuário da sua instância (ex: `db2inst1`).
