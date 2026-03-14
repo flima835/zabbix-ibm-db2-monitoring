@@ -24,7 +24,7 @@ O template utiliza `UserParameters` para coletar métricas essenciais diretament
 O usuário do Zabbix precisa de permissão para executar comandos como o usuário da instância DB2 (ex: `db2ecp`). Adicione ao seu arquivo `sudoers`:
 
 ### 2. Configuração dos UserParameters
-Para que o Zabbix colete os dados, você deve criar um arquivo de configuração no diretório do Zabbix Agent (geralmente `/etc/zabbix/zabbix_agentd.d/db2_monitor.conf`).
+Para que o Zabbix colete os dados, você deve criar um arquivo de configuração no diretório do Zabbix Agent (`/etc/zabbix/zabbix_agentd.d/db2_monitor.conf`).
 
 ### Observação Técnica Importante:
 
